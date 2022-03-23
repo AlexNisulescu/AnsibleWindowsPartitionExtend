@@ -1,0 +1,11 @@
+---
+# vars file for roles/win_part_extend
+vcenter_hostname: #IP or Hostname
+vcenter_username: #username
+vcenter_username: #password
+datacenter: #datacenter name
+folder: #virtual machine folder
+vm_name: #The name of the virtual machine
+vm_username: #Username to authentificate to the virtual machine
+vm_password: #Password to authentificate to the virtual machine
+partitionLetter: #C, D, E, etc.

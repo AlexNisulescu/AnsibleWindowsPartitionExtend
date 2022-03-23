@@ -1,0 +1,44 @@
+---
+# tasks file for roles/win_part_mount
+- name: Initialize the third disk
+  vmware_vm_shell:
+   hostname: "{{ vcenter_hostname }}"
+   username: "{{ vcenter_username }}"
+   password: "{{ vcenter_password }}"
+   validate_certs: False
+   datacenter: "{{ datacenter }}"
+   folder: "{{ folder }}"
+   vm_id: "{{ vm_name }}"
+   vm_username: "{{ vm_username }}"
+   vm_password: "{{ vm_password }}"
+   vm_shell: 'c:\windows\system32\windowspowershell\v1.0\powershell.exe'
+   vm_shell_args: '-command "(Initialize-Disk -Number 2)"'
+   wait_for_process: true
+- name: Create the partition
+  vmware_vm_shell:
+   hostname: "{{ vcenter_hostname }}"
+   username: "{{ vcenter_username }}"
+   password: "{{ vcenter_password }}"
+   validate_certs: False
+   datacenter: "{{ datacenter }}"
+   folder: "{{ folder }}"
+   vm_id: "{{ vm_name }}"
+   vm_username: "{{ vm_username }}"
+   vm_password: "{{ vm_password }}"
+   vm_shell: 'c:\windows\system32\windowspowershell\v1.0\powershell.exe'
+   vm_shell_args: '-command "(New-Partition -DiskNumber 2 -UseMaximumSize -DriveLetter {{ partitionLetter }})"'
+   wait_for_process: true
+- name: Format the partition
+  vmware_vm_shell:
+   hostname: "{{ vcenter_hostname }}"
+   username: "{{ vcenter_username }}"
+   password: "{{ vcenter_password }}"
+   validate_certs: False
+   datacenter: "{{ datacenter }}"
+   folder: "{{ folder }}"
+   vm_id: "{{ vm_name }}"
+   vm_username: "{{ vm_username }}"
+   vm_password: "{{ vm_password }}"
+   vm_shell: 'c:\windows\system32\windowspowershell\v1.0\powershell.exe'
+   vm_shell_args: '-command "(Format-Volume -DriveLetter {{ partitionLetter }} -FileSystem {{ formatType }})"'
+   wait_for_process: true

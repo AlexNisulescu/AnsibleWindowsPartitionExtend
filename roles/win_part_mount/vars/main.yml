@@ -1,0 +1,13 @@
+---
+# vars file for roles/win_part_mount
+vcenter_hostname: #IP or Hostname
+vcenter_username: #username
+vcenter_password: #password
+datacenter: #datacenter name
+folder: #virtual machine folder
+vm_name: #The name of the virtual machine
+vm_username: #Username to authentificate to the virtual machine
+vm_password: #Password to authentificate to the virtual machine
+partitionLetter: #C, D, E, etc.
+diskNumber: #0, 1, 2, etc.
+formatType: #FAT, FAT32, exFAT, NTFS, ReFS

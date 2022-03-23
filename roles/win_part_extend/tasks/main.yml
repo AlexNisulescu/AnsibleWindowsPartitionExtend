@@ -1,0 +1,15 @@
+---
+- name: Resize the partition
+  community.vmware.vmware_vm_shell:
+   hostname: "{{ vcenter_hostname }}"
+   username: "{{ vcenter_username }}"
+   password: "{{ vcenter_password }}"
+   validate_certs: False
+   datacenter: "{{ datacenter }}"
+   folder: "{{ folder }}"
+   vm_id: "{{ vm_name }}"
+   vm_username: "{{ vm_username }}"
+   vm_password: "{{ vm_password }}"
+   vm_shell: 'c:\windows\system32\windowspowershell\v1.0\powershell.exe'
+   vm_shell_args: '-command "(Resize-Partition -DriveLetter {{ partitionLetter }} -Size (Get-PartitionSupportedSize -DriveLetter {{ partitionLetter }}).SizeMax)"'
+   wait_for_process: true
