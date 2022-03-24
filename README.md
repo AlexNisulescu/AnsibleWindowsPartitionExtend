@@ -16,9 +16,10 @@ This repo was created from the need to repeatedly create Windows virtual machine
 ## Requirements
 
 Ansible - minimum version: 2.11
+VMware vCenter
+Community.vmware collection (which you can install from [here]: https://github.com/ansible-collections/community.vmware)
 
-You will also need to modify in both roles vars/main.yml :variables according to each role. For more about that see each role README.
-
+You will need to modify in both roles vars/main.yml :variables according to each role. For more about that see each role README.
 
 ## How to use it
 Run it with:
