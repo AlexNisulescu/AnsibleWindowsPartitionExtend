@@ -1,4 +1,4 @@
-# Ansible script for extending a windows pertition or mounting a new one using VMware shell
+# Ansible script for extending a windows partition or mounting a new one using VMware shell
 
 ## Table of contents
   * [Index](#index)
